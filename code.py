@@ -1,8 +1,10 @@
-
-
+"""
+Inputs:
+    X: n*m  numerical matrix which "n" is the number of samples, and "m" is the number of features
+    y: n*1  array which has the labels of rows in X
+"""
 
 # DT Cross-validation --------- Behzad Amanpour -------------------------
-
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
 
@@ -10,11 +12,7 @@ model = DecisionTreeClassifier()
 scores = cross_val_score(model, X, y, cv=5, scoring='accuracy') # scoring='recall' 
 print("cross-val accuracy:", np.mean(scores))
 
-
-
-
 # Regularization (Pruning) ---- Behzad Amanpour ------------------------
-
 model = DecisionTreeClassifier()
 model.fit(X, y)
 model.get_depth()
@@ -24,12 +22,9 @@ model = DecisionTreeClassifier(max_depth=3, min_samples_leaf=2, max_leaf_nodes=1
 scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')
 print("cross-val accuracy:", np.mean(scores))
 
-
-
-
 # Grid Search ----------------  Behzad Amanpour ------------------------- 
-
 from sklearn.model_selection import GridSearchCV
+
 param_grid = {
     'max_depth': [2, 3, 5],
     'min_samples_leaf': [1, 2, 5],
