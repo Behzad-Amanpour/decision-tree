@@ -17,7 +17,9 @@ model = DecisionTreeClassifier()
 model.fit(X, y)
 print( model.get_depth() )  
 print( model.get_n_leaves() )
-model = DecisionTreeClassifier(max_depth=3, min_samples_leaf=2, max_leaf_nodes=10)  # "max_depth" is based on "model.get_depth", and "max_leaf_nodes" is based on "model.get_n_leaves()"
+model = DecisionTreeClassifier(max_depth=3, min_samples_leaf=2, max_leaf_nodes=10)  
+                                  # "max_depth" is based on "model.get_depth"
+                                  # "max_leaf_nodes" is based on "model.get_n_leaves()"
 scores = cross_val_score(model, X, y, cv=5, scoring='accuracy')
 print("cross-val accuracy:", np.mean(scores))
 
